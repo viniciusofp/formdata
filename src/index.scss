@@ -7,7 +7,8 @@ h1 {
 h2 {
   color: $purple;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
+  margin-bottom: 0;
 }
 h3 {
   color: $purple;
@@ -34,6 +35,10 @@ a {
   padding-top: 15px;
   padding-bottom: 15px;
   cursor: pointer;
+  &.headerActive {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 14px;
+  }
   &:hover * {
     color: darken($purple, 10%);
   }

@@ -13,7 +13,7 @@ class AuthForm extends Component {
             className="form-control"
             placeholder="Url do Formulário"
             name="url"
-            defaultValue="http://lb-wiredform-1077555453.us-east-1.elb.amazonaws.com/"
+            defaultValue="http://form.wiredfestival.com.br/"
           />
         </div>
         <div className="form-group">
@@ -30,7 +30,7 @@ class AuthForm extends Component {
           <label htmlFor="passInput">Senha</label>
           <input
             id="passInput"
-            type="text"
+            type="password"
             className="form-control"
             placeholder="Senha"
             name="password"

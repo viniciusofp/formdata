@@ -37,7 +37,11 @@ class Inscricoes extends Component {
             <div className="inscricao container-fluid" key={inscricao.ID}>
               <div className="row">
                 <div
-                  className="col-12 collapseTrigger sticky-top"
+                  className={
+                    inscricao.collapsed
+                      ? "col-12 collapseTrigger sticky-top"
+                      : "col-12 collapseTrigger headerActive sticky-top"
+                  }
                   onClick={() => this.handleCollapse(inscricao.ID)}
                 >
                   <h2>
@@ -53,9 +57,18 @@ class Inscricoes extends Component {
                 </div>
                 <div className={inscricao.collapsed ? "d-none" : "col-12 mt-3"}>
                   <p>
+                    <strong>ID: </strong>
+                    {inscricao.ID}
+                  </p>
+                  <p>
                     <strong>Categoria</strong>
                     <br />
                     {inscricao.categoria}
+                  </p>
+                  <p>
+                    <strong>Premiação</strong>
+                    <br />
+                    {inscricao.premiacao}
                   </p>
                   <p>
                     <strong>Organização</strong>
