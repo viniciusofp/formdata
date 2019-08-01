@@ -18,7 +18,8 @@ class Main extends Component {
       baseURL: `https://cors-anywhere.herokuapp.com/${body.url}login`,
       headers: {
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache"
+        "Cache-Control": "no-cache",
+        "X-Requested-With": "XMLHttpRequest"
       },
       data: {
         username: body.username,
