@@ -63,7 +63,6 @@ class Main extends Component {
         <div className="container mt-5">
           <div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-8 col-xl-6 mt-3">
-              <h1>Creativex Form Data</h1>
               {this.state.ok ? "" : <AuthForm onSubmit={this.handleSubmit} />}
               {this.state.message !== "" ? (
                 <div
@@ -82,17 +81,7 @@ class Main extends Component {
             </div>
           </div>
         </div>
-        <div className="container mt-5 mb-5">
-          <div className="row">
-            <div className="col-12">
-              {this.state.ok ? (
-                <Inscricoes inscricoes={this.state.inscricoes} />
-              ) : (
-                ""
-              )}
-            </div>
-          </div>
-        </div>
+        {this.state.ok ? <Inscricoes inscricoes={this.state.inscricoes} /> : ""}
       </div>
     );
   }

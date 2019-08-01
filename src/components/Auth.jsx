@@ -13,7 +13,7 @@ class AuthForm extends Component {
             className="form-control"
             placeholder="Url do Formulário"
             name="url"
-            defaultValue="http://ec2-18-191-115-16.us-east-2.compute.amazonaws.com/"
+            defaultValue="http://lb-wiredform-1077555453.us-east-1.elb.amazonaws.com/"
           />
         </div>
         <div className="form-group">
