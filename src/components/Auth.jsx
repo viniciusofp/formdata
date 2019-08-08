@@ -24,7 +24,6 @@ class AuthForm extends Component {
             className="form-control"
             placeholder="Usuário"
             name="username"
-            defaultValue="creativexapiuser"
           />
         </div>
         <div className="form-group">
@@ -35,7 +34,6 @@ class AuthForm extends Component {
             className="form-control"
             placeholder="Senha"
             name="password"
-            defaultValue="lal(0op_86Ab^aI"
           />
         </div>
         <button className="btn btn-primary">Autenticar</button>
