@@ -11,12 +11,26 @@ h2 {
   margin-bottom: 0;
 }
 h3 {
-  color: $purple;
+  color: $green;
   font-size: 18px;
   font-weight: 700;
 }
 a {
   color: $green;
+}
+
+.fa-refresh {
+  margin-left: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: darken(#28a745, 10%) !important;
+    transform: rotate(30deg);
+  }
+  &:active {
+    color: darken(#28a745, 10%) !important;
+    transform: rotate(180deg);
+  }
 }
 
 .inscricao {

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 
 class Inscricoes extends Component {
   state = {
-    inscricoes: []
+    inscricoes: [{ time: Date.now(), periodo: {}, integrantes: [] }]
   };
   componentDidUpdate(prevProps, prevState) {
     if (prevProps !== this.props) {
@@ -28,13 +28,21 @@ class Inscricoes extends Component {
         <div className="container mt-5 mb-5">
           <div className="row">
             <div className="col-12 mb-3 text-center">
-              <h1>Inscrições</h1>
+              <h1>
+                Inscrições{" "}
+                <small>
+                  <i
+                    onClick={this.props.onRefresh}
+                    className="text-success fa fa-refresh"
+                  />
+                </small>
+              </h1>
             </div>
           </div>
         </div>
         {this.state.inscricoes.map((inscricao, index) => {
           return (
-            <div className="inscricao container-fluid" key={inscricao.ID}>
+            <div className="inscricao container" key={inscricao.ID}>
               <div className="row">
                 <div
                   className={
@@ -58,7 +66,13 @@ class Inscricoes extends Component {
                 <div className={inscricao.collapsed ? "d-none" : "col-12 mt-3"}>
                   <p>
                     <strong>ID: </strong>
+                    <br />
                     {inscricao.ID}
+                  </p>
+                  <p>
+                    <strong>Data de Inscrição: </strong>
+                    <br />
+                    {Date(inscricao.time).toLocaleString()}
                   </p>
                   <p>
                     <strong>Categoria</strong>
@@ -70,11 +84,11 @@ class Inscricoes extends Component {
                     <br />
                     {inscricao.premiacao}
                   </p>
-                  <p>
+                  {/* <p>
                     <strong>Organização</strong>
                     <br />
                     {inscricao.organizacao}
-                  </p>
+                  </p> */}
                   <p>
                     <strong>CNPJ</strong>
                     <br />
