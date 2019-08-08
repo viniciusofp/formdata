@@ -85,6 +85,7 @@ class Main extends Component {
       preFormattedData.push(item);
     });
     const headers = {
+      time: "Horário de Inclusão",
       _id: "MongoDB ID",
       ID: "ID",
       categoria: "Categoria",
@@ -100,7 +101,8 @@ class Main extends Component {
       estrategia: "Estratégia",
       videoFile: "Vídeo",
       imageFile: "Conteúdo de Suporte Digital",
-      time: "Horário de Inclusão",
+      periodoInicio: "Início Veiculação",
+      periodoFim: "Fim Veiculação",
       integrante1Nome: "Integrante 1 Nome",
       integrante1Cargo: "Integrante 1 Cargo",
       integrante1Email: "Integrante 1 Email",
@@ -115,9 +117,7 @@ class Main extends Component {
       integrante4Email: "Integrante 4 Email",
       integrante5Nome: "Integrante 5 Nome",
       integrante5Cargo: "Integrante 5 Cargo",
-      integrante5Email: "Integrante 5 Email",
-      periodoInicio: "Início Veiculação",
-      periodoFim: "Fim Veiculação"
+      integrante5Email: "Integrante 5 Email"
     };
     const keys = [];
     _.mapKeys(preFormattedData[0], function(value, key) {
@@ -128,7 +128,11 @@ class Main extends Component {
 
     // format the data
     preFormattedData.forEach(item => {
+      let date = new Date(item.time);
+      date = date.toLocaleDateString() + " " + date.toTimeString();
+      item.time = date;
       itemsFormatted.push({
+        time: item.time,
         _id: item._id.replace(/,/g, ";"),
         ID: item.ID.replace(/,/g, ";"),
         categoria: item.categoria.replace(/,/g, ";"),
@@ -139,12 +143,13 @@ class Main extends Component {
         cnpj: item.cnpj.replace(/,/g, ";"),
         endereco: item.endereco.replace(/,/g, ";"),
         telefone: item.telefone.replace(/,/g, ";"),
-        relevancia: item.relevancia.replace(/,/g, ";"),
+        relevancia: item.relevancia.replace(/,/g, ";").replace(/\r\n/g, " "),
         budget: item.budget.replace(/,/g, ";"),
-        estrategia: item.estrategia.replace(/,/g, ";"),
+        estrategia: item.estrategia.replace(/,/g, ";").replace(/\r\n/g, " "),
         videoFile: item.videoFile.replace(/,/g, ";"),
         imageFile: item.imageFile.replace(/,/g, ";"),
-        time: item.time,
+        periodoInicio: item.periodoInicio.replace(/,/g, ";"),
+        periodoFim: item.periodoFim.replace(/,/g, ";"),
         integrante1Nome: item.integrante1Nome.replace(/,/g, ";"),
         integrante1Cargo: item.integrante1Cargo.replace(/,/g, ";"),
         integrante1Email: item.integrante1Email.replace(/,/g, ";"),
@@ -159,11 +164,10 @@ class Main extends Component {
         integrante4Email: item.integrante4Email.replace(/,/g, ";"),
         integrante5Nome: item.integrante5Nome.replace(/,/g, ";"),
         integrante5Cargo: item.integrante5Cargo.replace(/,/g, ";"),
-        integrante5Email: item.integrante5Email.replace(/,/g, ";"),
-        periodoInicio: item.periodoInicio.replace(/,/g, ";"),
-        periodoFim: item.periodoFim.replace(/,/g, ";")
+        integrante5Email: item.integrante5Email.replace(/,/g, ";")
       });
     });
+    console.log(itemsFormatted);
     exportCSVFile(headers, itemsFormatted, "inscricoes");
   };
   render() {

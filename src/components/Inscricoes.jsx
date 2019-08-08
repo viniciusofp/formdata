@@ -41,6 +41,10 @@ class Inscricoes extends Component {
           </div>
         </div>
         {this.state.inscricoes.map((inscricao, index) => {
+          let date = new Date(inscricao.time);
+          date = date.toLocaleDateString() + " " + date.toTimeString();
+          console.log(date);
+
           return (
             <div className="inscricao container" key={inscricao.ID}>
               <div className="row">
@@ -72,23 +76,23 @@ class Inscricoes extends Component {
                   <p>
                     <strong>Data de Inscrição: </strong>
                     <br />
-                    {Date(inscricao.time).toLocaleString()}
+                    {date}
                   </p>
                   <p>
                     <strong>Categoria</strong>
                     <br />
                     {inscricao.categoria}
                   </p>
-                  <p>
+                  {/* <p>
                     <strong>Premiação</strong>
                     <br />
                     {inscricao.premiacao}
-                  </p>
-                  {/* <p>
+                  </p> */}
+                  <p>
                     <strong>Organização</strong>
                     <br />
                     {inscricao.organizacao}
-                  </p> */}
+                  </p>
                   <p>
                     <strong>CNPJ</strong>
                     <br />
@@ -146,7 +150,7 @@ class Inscricoes extends Component {
                   </p>
                   {inscricao.integrantes.map((integrante, i) => {
                     return (
-                      <div>
+                      <div key={`integrante${i}_${inscricao.ID}`}>
                         <h3>Integrante {i + 1}</h3>
                         <p>
                           <strong>Nome</strong>
