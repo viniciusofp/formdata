@@ -50,15 +50,17 @@ class Main extends Component {
   callApi = async (url, token) => {
     const options = {
       method: "get",
-      baseURL: url,
+      baseURL:
+        "https://cors-anywhere.herokuapp.com/http://form.wiredfestival.com.br/db.json",
       headers: {
-        Authorization: `Bearer ${token}`,
-        "Cache-Control": "no-cache"
+        "Content-Type": `application/json`
       }
     };
     try {
       const response = await axios(options);
-      this.setState({ inscricoes: response.data });
+      let datas = _.uniqBy(response.data, _.property(["ID"]));
+      console.log(datas);
+      this.setState({ inscricoes: datas });
     } catch (e) {
       console.log(e);
     }

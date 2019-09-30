@@ -22,7 +22,7 @@ class AuthForm extends Component {
             id="userInput"
             type="text"
             className="form-control"
-            placeholder="Usuário"
+            defaultValue="creativexapiuser"
             name="username"
           />
         </div>
@@ -32,7 +32,7 @@ class AuthForm extends Component {
             id="passInput"
             type="password"
             className="form-control"
-            placeholder="Senha"
+            defaultValue="lal(0op_86Ab^aI"
             name="password"
           />
         </div>
