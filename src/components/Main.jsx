@@ -88,7 +88,6 @@ class Main extends Component {
     });
     const headers = {
       time: "Horário de Inclusão",
-      _id: "MongoDB ID",
       ID: "ID",
       categoria: "Categoria",
       nome_da_campanha: "Nome da Campanha",
