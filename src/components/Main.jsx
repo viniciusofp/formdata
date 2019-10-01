@@ -202,12 +202,11 @@ class Main extends Component {
               onRefresh={() => this.callApi(this.state.url, this.state.token)}
             />
             <div className="text-center">
-              <button
-                className="btn btn-primary mt-5 mx-auto"
-                onClick={this.handleExport}
-              >
-                Download as CSV
-              </button>
+              <a href="http://form.wiredfestival.com.br/db.csv">
+                <button className="btn btn-primary mt-5 mx-auto mb-5">
+                  Download as CSV
+                </button>
+              </a>
             </div>
           </Fragment>
         ) : (
