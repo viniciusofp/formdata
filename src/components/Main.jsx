@@ -130,12 +130,12 @@ class Main extends Component {
 
     // format the data
     preFormattedData.forEach(item => {
+      console.log(item);
       let date = new Date(item.time);
       date = date.toLocaleDateString() + " " + date.toTimeString();
       item.time = date;
       itemsFormatted.push({
         time: item.time,
-        _id: item._id.replace(/,/g, ";"),
         ID: item.ID.replace(/,/g, ";"),
         categoria: item.categoria.replace(/,/g, ";"),
         nome_da_campanha: item.nome_da_campanha.replace(/,/g, ";"),
